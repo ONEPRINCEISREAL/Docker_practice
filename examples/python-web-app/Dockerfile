@@ -1,22 +1,21 @@
-FROM ubuntu
+FROM python:3.11-slim
 
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 WORKDIR /app
 
-COPY requirements.txt /app/
-COPY devops /app/
+# Install minimal system deps (adjust as needed for your requirements)
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gcc libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-SHELL ["/bin/bash", "-c"]
+COPY . .
 
-RUN python3 -m venv venv1 && \
-source venv1/bin/activate && \
-pip install --no-cache-dir -r requirements.txt
+# Run as non-root user
+RUN useradd -m appuser && chown -R appuser /app
+USER appuser
 
 EXPOSE 8000
-
-CMD source venv1/bin/activate && python3 manage.py runserver 0.0.0.0:8000
-
-
-
-
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
