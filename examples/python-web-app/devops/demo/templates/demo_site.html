@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Prince Singh Chauhan - DevOps Course</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Header Styling */
+header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 50px 30px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.8s ease-out;
+  border-bottom: 3px solid #ffd700;
+}
+
+header h2 {
+  font-size: 2.8em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: glow 2s ease-in-out infinite;
+  margin-bottom: 10px;
+}
+
+header::after {
+  content: "🐳 Docker Powered DevOps";
+  display: block;
+  font-size: 1.1em;
+  color: #ffd700;
+  margin-top: 10px;
+  animation: fadeIn 1.2s ease-out;
+}
+
+/* Main Section */
+section {
+  display: flex;
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 40px auto;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+/* Navigation Sidebar */
+nav {
+  width: 28%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.8s ease-out 0.2s both;
+  backdrop-filter: blur(10px);
+  border-left: 5px solid #667eea;
+}
+
+nav h3 {
+  color: #667eea;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  margin: 15px 0;
+}
+
+nav ul li a {
+  display: block;
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  text-align: center;
+}
+
+nav ul li a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+nav ul li a:active {
+  transform: translateY(-2px);
+}
+
+/* Article Content */
+article {
+  width: 72%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.8s ease-out 0.4s both;
+  backdrop-filter: blur(10px);
+  border-right: 5px solid #764ba2;
+}
+
+article h1 {
+  color: #667eea;
+  font-size: 2.2em;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+article p {
+  color: #555;
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin: 15px 0;
+  animation: fadeIn 1s ease-out 0.6s both;
+}
+
+article p:first-of-type::before {
+  content: "✨ ";
+  color: #ffd700;
+}
+
+article p:last-of-type::before {
+  content: "📢 ";
+  color: #ffd700;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+  padding: 25px;
+  text-align: center;
+  color: #fff;
+  margin-top: auto;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+  border-top: 3px solid #ffd700;
+}
+
+footer p {
+  font-size: 1em;
+  letter-spacing: 0.5px;
+}
+
+footer a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: #ffd700;
+  transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+footer a:hover {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    margin: 20px auto;
+  }
+
+  nav, article {
+    width: 100% !important;
+  }
+
+  header h2 {
+    font-size: 1.8em;
+  }
+
+  nav, article {
+    border-left: none;
+    border-right: none;
+    border-top: 3px solid #667eea;
+  }
+
+  article {
+    border-top: 3px solid #764ba2;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 30px 15px;
+  }
+
+  header h2 {
+    font-size: 1.4em;
+  }
+
+  nav, article {
+    padding: 20px;
+  }
+
+  article h1 {
+    font-size: 1.6em;
+  }
+
+  article p {
+    font-size: 0.95em;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h2>Free DevOps Course By Prince Singh Chauhan</h2>
+</header>
+
+<section>
+  <nav>
+    <h3>Connect</h3>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/prince-chauhan-20901930b/" target="_blank">🔗 LinkedIn</a></li>
+      <li><a href="https://princesinghchauhan.qzz.io" target="_blank">🌐 Website</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>📚 Agenda</h1>
+    <p>Learn DevOps with strong foundational knowledge and practical understanding. Master containerization, orchestration, CI/CD pipelines, and cloud technologies.</p>
+    <p>Please Share the Channel with your friends and colleagues to help them start their DevOps journey!</p>
+  </article>
+</section>
+
+<footer>
+  <p>🚀 Prince Singh Chauhan | <a href="https://princesinghchauhan.qzz.io" target="_blank">princesinghchauhan.qzz.io</a></p>
+</footer>
+
+</body>
+</html>
+
